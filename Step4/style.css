@@ -1,0 +1,78 @@
+body{
+    text-align: center;
+    background-color: #F5F5F5;
+}
+canvas{
+    border:2px solid #444444;
+    background-image:url(images/grasses68.gif);
+    margin-right: 0px;
+}
+#talkBox{
+    height:20px;
+    color:brown;
+    font-size: 26px;
+    font-weight: bold;
+}
+#dialogFin{
+    border: 2px solid #003d79;
+    background-color: #F8F8FF;
+    width:300px;
+    height:150px;
+    position: relative;
+    top:-500px;
+    left:405px;
+    right:0;
+    bottom: 0;
+    display: none;
+}
+#dialogFin p{
+    line-height: 80px;
+}
+#key{
+    position: absolute;
+    top:0px;
+    margin: 0 auto;
+    margin-left: 100px;
+    display: none;
+}
+.window{
+   border:2px solid #444444;
+   background-color: white;
+   width:250px;
+   height: 605px; 
+}
+#line{
+    float:right;
+    margin-left: -90px;
+    text-align: left;
+    font-weight: bold;
+    color:	#CC0000;
+}
+#status{
+    float: left;
+    margin-right: -90px;
+    font-size: 200%;
+    color: #cc0000;
+    font-weight: bold;
+}
+#status img{
+    width: 50px;
+    margin: 20px;
+}
+#gameOver{
+    border: 1px solid black;
+    width:600px;
+    height: 200px;
+    background-color:black;
+    font-size: 500%;
+    font-weight: bolder;
+    color:#ce0000;
+    line-height: 190px;
+    position: absolute;
+    top:-200px;
+    left:0;
+    right: 0;
+    border: 0;
+    margin: 0 auto;
+}
+

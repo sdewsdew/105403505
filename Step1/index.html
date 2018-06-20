@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title> Title </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="head" class="box">
+        <p>看個劇, 放鬆一下吧...</p>
+        <a href="#generalType"><button>幫我選</button></a>
+    </div><br>
+    <div id="block_1"><a id="generalType">
+        <div id="box1" class="box">
+            <span>種類</span>
+            <span></span>
+            <div class="info"></div>
+            <div id="poster">海報</div>
+            <div class="reset">重選</div>
+            <a href="#type"><div class="next">NEXT</div></a>
+        </div></a>
+    </div>    
+    <div id="block_2"><a id="type">
+        <div id="box2" class="box">
+            <span>類型</span>
+            <div class="info"></div>
+            <div class="reset">重選</div>
+            <a href="#result"><div class="next">NEXT</div></a>
+        </div></a>
+    </div>
+    <div id="block_3"><a id="result">
+        <div id="box3" class="box">
+            <div class="info"></div>
+        </div></a>
+    </div>
+</body>
+</html>

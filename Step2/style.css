@@ -1,0 +1,16 @@
+td{
+    border-bottom:1.5px solid #9393ff;
+    padding: 15px;
+    
+}
+table{
+    margin: 0 auto;
+    width:600px;
+}
+*{
+    text-align: center;
+    font-family: 微軟正黑體;
+}
+th{
+    border-bottom: 2px solid #003d79;
+}

@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+}
+
+h2{
+    height:32px;
+}
+#sele li{
+    list-style-type: none;
+    display: inline;
+    padding: 10px 20px;
+    border:1px solid; 
+    cursor: pointer;
+}
+
+

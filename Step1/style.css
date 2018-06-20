@@ -1,0 +1,64 @@
+body{
+    text-align: center;
+    font-family: 微軟正黑體;
+    background-color: #F5F5F5;
+}
+#head p{
+    font-size: 200%;
+    color:#003d79;
+    line-height: 300px;
+}
+.box{
+    width: 80%;
+    height: 500px;
+    border:3px solid #708090;
+    position: relative;
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 120%;
+    background-color:white;
+}
+img{
+    max-height: 430px;
+    max-width: 300px;
+}
+.box span{
+    float: left;
+}
+#box1 div:not(.info):not(.title){
+    display: inline-block;
+    float:right;
+    margin-top: 150px;
+    padding: 15px;
+    cursor: pointer;
+}
+#box2 div:not(.info):not(.title){
+    cursor: pointer;
+}
+#box2 .info div{
+    padding:7px;
+    margin: 0 1px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.space{
+    height:80px;
+}
+.title{
+   font-size: 200%;
+    text-align: left;
+}
+#typeval{
+    font-size: 300%;
+    color:tomato;
+    font-weight: bold;
+    margin-left: 20px;
+}
+#box3 .info{
+    font-size: 250%;
+    line-height: 500px;
+}
