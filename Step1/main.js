@@ -1,14 +1,17 @@
 var select=[null,null];
 var index_genr = -1, index_type = -1, index_poster = -1;
 $(document).ready(()=>{
-     
+    $("#block_1, #block_2, #block_3").fadeOut();
     $("#head #button,#box1 .reset").click(()=>{
+        $("#block_1").fadeIn(1500);
         chooseGenrType();
     });
     $("#box1 .next, #box2 .reset").click(()=>{
+        $("#block_2").fadeIn(1500);
         chooseType();
     });
     $("#box2 .next").click(()=>{
+        $("#block_3").fadeIn(1500);
         showResult();
     });
     
