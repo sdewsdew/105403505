@@ -66,7 +66,7 @@ $(document).ready(function(){
         $("#gameOver").text("YOU WIN");
         $("#gameOver").animate({top:'250px'},1500);
         $("#gameOver").fadeTo(3000,0.8);
-    });
+    }); 
     $("#fin_no").click(()=>{
         $("#dialogFin").hide();
         $("#gameOver").text("YOU LOSE");
