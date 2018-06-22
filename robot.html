@@ -14,17 +14,23 @@
 
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
+    <style type="text/css">
+        *{font-family: "微軟正黑體"}
+		input { width: 400px; } 
+		#response { width: 600px; min-height: 600px;text-align: left}
+        img{margin:25px};
+	</style>  
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript">
 
-		var accessToken = "6077290755e640ed98334b48d9d0ea86";
+		var accessToken = "ac4cbca88f344cfb8167f98da86f5f24";
 		var baseUrl = "https://api.api.ai/v1/";
 
 		$(document).ready(function() {
 			$("#input").keypress(function(event) {
 				if (event.which == 13) {
 					event.preventDefault();
-                    setResponse("You: "+$("#input").val()+"\n");
+                    setResponse("You: "+$("#input").val()+"<br>");
 					send();
 				}
 			});
@@ -95,10 +101,10 @@
 				success: function(data) {
                     var result = JSON.stringify(data, undefined, 2);
                     var jsonData = JSON.parse(result);
-                    setResponse("sdew: "+jsonData.result.fulfillment.speech+"\n");
+                    setResponse("sdew: "+jsonData.result.fulfillment.speech+"<br>");
                     $("#input").val("");
                     if(!jsonData.result.actionIncomplete){
-                        getWeatherData(jsonData.result.parameters);
+                        getIntro(jsonData.result.parameters);
                     }
 				},
 				error: function() {
@@ -111,28 +117,50 @@
 		function setResponse(val) {
 			$("#response").prepend(val);
 		}
+        function setInfo(val) {
+			$("#response").append(val);
+		}
 
-        function getWeatherData(queryinfo){
-            var url = "http://api.openweathermap.org/data/2.5/weather?";
+        function getIntro(queryinfo){
+            var url = "https://api.themoviedb.org/3/search/movie?";
             //var url="http://api.openweathermap.org/data/2.5/forecast?";
-            var appid = "280ffd2914819e7f6ee0af29a7605a99";
+            var appid = "c274969d9c9a2b6c1723c5708e7828b7";
             var data = $.getJSON(url,{
-                q:queryinfo["geo-city"],
-                APPID:appid,
-                units:'metric'
+                query:queryinfo.name,
+                api_key:appid,
+                language:"zh-TW",
+                include_adult:true
             });
             data.success(function(msg){
-                setResponse("sdew: The weather is "+msg.weather[0].description+" and the temperature is around "+msg.main.temp+"&#8451;\n");
+                console.log(msg);
+                showIntro(msg);
             });
             data.error(function(msg){
-                console.log("Error!!");
+               
             });
         }
+        function showIntro(data){
+           /* $(data.results).each(function(i,ele){
+                var div = $("<div id='intro' style='border:2px solid #003d79; width:550px; margin:5px auto'>");
+                var image = $("<img>");
+                image.attr("src", "https://image.tmdb.org/t/p/w500"+ele.poster_path);
+                div.append("名稱:"+ele.title+"<br>上映日期:"+ele.release_date+
+                       "<br>評價:"+ele.vote_average+"<br>簡介:"+ele.overview+"<br>",image);
+                setInfo(div);
+            });*/
+            if(data.results.length==0){
+                setResponse("sdew:Sorry, I can't find it.<br>");
+                return false;
+            }
+           var div = $("<div id='intro' style='border:2px solid #003d79; width:550px; margin:5px auto'>");
+            var image = $("<img>");
+            image.attr("src", "https://image.tmdb.org/t/p/w500"+data.results[0].poster_path);
+            div.append("名稱:"+data.results[0].title+"<br>上映日期:"+data.results[0].release_date+
+                       "<br>評價:"+data.results[0].vote_average+"<br>簡介:"+data.results[0].overview+"<br>",image);
+            setResponse(div);
+        }
 	</script>
-    <style type="text/css">
-		input { width: 400px; } 
-		textarea { width: 45%; }
-	</style>
+    
   </head>
     
     
@@ -182,7 +210,7 @@
              <hr class="featurette-divider">
   <center><div>
 		<input id="input" type="text"> <button id="rec">Speak</button>
-		<br>Response<br> <textarea id="response" cols="40" rows="20"></textarea>
+		<br>Response<br> <div id="response" cols="40" rows="20">(example:"I want to know something about movieTitle" or "I want to watch movie")</div>
       </div></center>
            <hr class="featurette-divider">
       </div><!-- /.container -->
